@@ -1,4 +1,0 @@
-coachnow
-========
-
-CoachNow project
