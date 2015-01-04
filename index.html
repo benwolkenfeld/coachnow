@@ -228,41 +228,27 @@
                       </span>
                     </div>
                     <div class="col-sm-2">
-                      <div ng-controller="ModalDemoCtrl">
-                        <script type="text/ng-template" id="atemplate">
-                        <div class="modal-header">
-                          <h3 class="modal-title">I am a modal!</h3>
-                        </div>
-                        <div class="modal-body">
-                          <ul>
-                            <li ng-repeat="item in items">
-                              <a ng-click="selected.item = item">{{ item }}</a>
-                            </li>
-                          </ul>
-                          Selected: <b>{{ selected.item }}</b>
-                        </div>
-                        <div class="modal-footer">
-                        <button class="btn btn-primary" ng-click="ok()">OK</button>
-                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-                        </div>
-                        </script>
+                      <div ng-controller="taskActionModalCtrl">
+
                         <!-- Single button with dropdown-->
                         <div class="btn-group pull-right clearfix"
-                        ng-controller="dropdownTaskActionCtrl"
-                        dropdown is-open="status.isopen">
+                          ng-controller="dropdownTaskActionCtrl"
+                          dropdown is-open="status.isopen">
                           <button type="button"
-                          class="btn btn-xs btn-default dropdown-toggle"
-                          dropdown-toggle>
-                          Take action... <span class="caret"></span>
+                            class="btn btn-xs btn-default dropdown-toggle"
+                            dropdown-toggle>
+                            Take action... <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu btn-xs" role="menu">
-                            <li><a href="#" ng-click="open()">Mark Complete</a></li>
-                            <li><a href="#" ng-click="open('lg')">Reschedule</a></li>
+                            <li><a href="#" ng-click="modalOpen('sm', 'Mark Complete')">Mark Complete</a></li>
+                            <li><a href="#" ng-click="modalOpen('sm', 'Reschedule')">Reschedule</a></li>
                             <li class="divider"></li>
-                            <li><a href="#" ng-click="open('sm')">Skip</a></li>
+                            <li><a href="#" ng-click="modalOpen('sm', 'Skip')">Skip</a></li>
                           </ul>
                         </div>
                         <!-- end single drop down button section -->
+
+
                       </div>
                     </div>
                   </div>

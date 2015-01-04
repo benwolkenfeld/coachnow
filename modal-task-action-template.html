@@ -1,0 +1,23 @@
+<!-- putting several different forms here - not sure if this the best
+location for these, but attempting to keep this code clean.  Forms
+are shown based on the task row drop down button selected
+Ben Wolkenfeld, 1/4/15-->
+<div class="modal-header">
+  <h4 class="modal-title">Task Action - {{selectedForm}}</h4>
+</div>
+<div class="modal-body">
+  <div class="h4">Selected form is: {{ selectedForm }}</div>
+  <div ng-show="{{selectedForm == 'Mark Complete'}}">mark complete</div>
+  <div ng-show="{{selectedForm == 'Reschedule'}}">reschedule</div>
+  <div ng-show="{{selectedForm == 'Skip'}}">skip</div>
+  <!-- <ul>
+    <li ng-repeat="item in items">
+      <a ng-click="selected.item = item">{{ item }}</a>
+    </li>
+  </ul>
+  Selected: <b>{{ selected.item }}</b>
+</div> -->
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">OK</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
