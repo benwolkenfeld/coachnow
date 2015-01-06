@@ -160,7 +160,7 @@ app.controller('taskActionModalCtrl', function ($scope, $modal, $log) {
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, selectedForm) {
 
-  console.log('In ModalInstanceCtrl.  selectedForm = ' + selectedForm);
+  //console.log('In ModalInstanceCtrl.  selectedForm = ' + selectedForm);
   $scope.selectedForm = selectedForm;
   $scope.items = items;
   $scope.selected = {
@@ -174,4 +174,8 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, sel
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
+  // $scope.setTaskComplete() {
+  //
+  // }
 });

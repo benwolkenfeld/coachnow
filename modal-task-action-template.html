@@ -7,16 +7,43 @@ Ben Wolkenfeld, 1/4/15-->
 </div>
 <div class="modal-body">
   <div class="h4">Selected form is: {{ selectedForm }}</div>
-  <div ng-show="{{selectedForm == 'Mark Complete'}}">mark complete</div>
+  <div ng-show="{{selectedForm == 'Mark Complete'}}">mark complete
+    <!-- <form name="taskCompleteForm" ng-submit="reviewCtrl.addReview(product)">
+
+
+      <h4>Submit a Review</h4>
+      <fieldset class="form-group">
+        <label for="TaskCompleteDateTime">Completed</label>
+        <input type=
+        <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+          <option value>Rate the Product</option>
+        </select>
+      </fieldset>
+      <fieldset class="form-group">
+        <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+      </fieldset>
+      <fieldset class="form-group">
+        <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+      </fieldset>
+      <fieldset class="form-group">
+        <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+      </fieldset>
+    </form> -->
+
+  </div>
   <div ng-show="{{selectedForm == 'Reschedule'}}">reschedule</div>
+    <!-- <form name="taskRescheduleForm">
+    </form> -->
   <div ng-show="{{selectedForm == 'Skip'}}">skip</div>
-  <!-- <ul>
-    <li ng-repeat="item in items">
-      <a ng-click="selected.item = item">{{ item }}</a>
-    </li>
-  </ul>
-  Selected: <b>{{ selected.item }}</b>
-</div> -->
+    <!-- <form name="taskSkipForm">
+    </form> -->
+      <!-- <ul>
+        <li ng-repeat="item in items">
+          <a ng-click="selected.item = item">{{ item }}</a>
+        </li>
+      </ul>
+      Selected: <b>{{ selected.item }}</b>
+    </div> -->
 <div class="modal-footer">
   <button class="btn btn-primary" ng-click="ok()">OK</button>
   <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
