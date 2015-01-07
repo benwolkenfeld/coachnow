@@ -3,33 +3,27 @@ location for these, but attempting to keep this code clean.  Forms
 are shown based on the task row drop down button selected
 Ben Wolkenfeld, 1/4/15-->
 <div class="modal-header">
-  <h4 class="modal-title">Task Action - {{selectedForm}}</h4>
+  <h4 class="modal-title">Action - {{selectedForm}}</h4>
 </div>
 <div class="modal-body">
-  <div class="h4">Selected form is: {{ selectedForm }}</div>
-  <div ng-show="{{selectedForm == 'Mark Complete'}}">mark complete
-    <!-- <form name="taskCompleteForm" ng-submit="reviewCtrl.addReview(product)">
-
-
-      <h4>Submit a Review</h4>
-      <fieldset class="form-group">
-        <label for="TaskCompleteDateTime">Completed</label>
-        <input type=
-        <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
-          <option value>Rate the Product</option>
-        </select>
-      </fieldset>
-      <fieldset class="form-group">
-        <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
-      </fieldset>
-      <fieldset class="form-group">
-        <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
-      </fieldset>
-      <fieldset class="form-group">
-        <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
-      </fieldset>
-    </form> -->
-
+  <div ng-show="{{selectedForm == 'Mark Complete'}}">
+    <form name="taskCompleteForm" class="form-horizontal">
+      <span>Ready to mark <strong>{{task.taskTitle }}</strong>
+        for {{task.clientFullName}} complete?</span>
+      <div class="form-group">
+        <label for="TaskCompleteDateTime" class="col-sm-2 control-label">Done on</label>
+        <div class="col-sm-10">
+          <input type="TaskCompleteDateTime" id="TaskCompleteDateTime"
+            class="form-control" placeholder="{{Date.now()}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="TaskCompleteNotes" class="col-sm-2 control-label">Notes</label>
+        <div class="col-sm-10">
+          <textarea  id="TaskCompleteNotes" class="form-control" placeholder="Don't forget your notes..."></textarea>
+        </div>
+      </div>
+    </form>
   </div>
   <div ng-show="{{selectedForm == 'Reschedule'}}">reschedule</div>
     <!-- <form name="taskRescheduleForm">

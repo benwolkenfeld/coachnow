@@ -8,8 +8,6 @@ app.controller("dropdownTaskFilterCtrl", function($scope, $http) {
   $http.get(homeUrl + "data/tasks.json").
   success(function(data, status, headers, config) {
     $scope.tasks = data;
-    console.log("length of my data = " + data.length);
-    console.log("")
   }).
   error(function(data, status, headers, config) {
 
@@ -47,21 +45,6 @@ app.controller("dropdownTaskFilterCtrl", function($scope, $http) {
 	  }
 
 	  console.log("new filter = " + $scope.taskFilter);
-  };
-});
-
-// used for the action drop down on each task (see 'taskCtrl' below)
-app.controller("dropdownTaskActionCtrl", function($scope) {
-  $scope.status = {
-    isopen: false
-  };
-  // ??? MYSTERY MAGIC ??? //
-  // how does the dropdown-toggle directive map to this function??? //
-  // Ben Wolkenfeld, 12/27/2014 //
-  $scope.toggleDropdown = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.status.isopen = !$scope.status.isopen;
   };
 });
 
@@ -129,53 +112,68 @@ app.filter('TasksDueLater', function () {
 // task action dropdown on each task row
 // Ben Wolkenfeld, 1/4/2015 1:24 pm
 app.controller('taskActionModalCtrl', function ($scope, $modal, $log) {
-  $scope.items = ['item1', 'item2', 'item3'];
 
-  $scope.modalOpen = function (size, selectedForm) {
+  // ******************* begin drop down button section *******************
+  // used for drop down button on each task action row
+  $scope.status = {
+    isopen: false
+  };
 
+  // ??? MYSTERY MAGIC ??? //
+  // how does the dropdown-toggle directive map to this function??? //
+  // Ben Wolkenfeld, 12/27/2014 //
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+  // ******************* end drop down button section *******************
+
+  // ******************* begin modal dialog controller section *******************
+  $scope.open = function (size, selectedForm, task) {
+    console.log("I'm here");
+    console.log("clientFullName = " + task.clientFullName);
+    console.log("taskTitle = " + task.taskTitle);
     var modalInstance = $modal.open({
       templateUrl: './modal-task-action-template.html',
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
-        items: function () {
-          return $scope.items;
-        },
         selectedForm: function () {
           return selectedForm;
+        },
+        task: function() {
+          return task;
         }
       }
     });
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
+    modalInstance.result.then(function () {
+      // placeholder for a service call to update a the task model with the selected action
+      //$scope.task = selectedItem;
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
+  // ******************* end modal dialog controller section *******************
 });
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, selectedForm) {
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedForm, task) {
 
   //console.log('In ModalInstanceCtrl.  selectedForm = ' + selectedForm);
   $scope.selectedForm = selectedForm;
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
+  $scope.task = task;
 
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close();
+    //$modalInstance.close($scope.selected.item);
   };
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-
-  // $scope.setTaskComplete() {
-  //
-  // }
 });

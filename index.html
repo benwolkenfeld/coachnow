@@ -207,6 +207,7 @@
 
             <!-- begin panel body section -->
             <div class="panel-body">
+
               <!-- begin open tasks section, refreshed from
               the drop down above -->
               <div>
@@ -225,7 +226,7 @@
                     <div class="col-sm-4">
                       <span class="h5">{{task.taskTitle}}</span><br/>
                       <span class="text-muted small">{{task.lastContactTitle +
-                        " on " + 1415392200000 | date: 'shortdate'}}
+                        " on "}} + {{1415392200000 | date: 'shortdate'}}
                       </span>
                     </div>
                     <div class="col-sm-2">
@@ -233,18 +234,21 @@
 
                         <!-- Single button with dropdown-->
                         <div class="btn-group pull-right clearfix"
-                          ng-controller="dropdownTaskActionCtrl"
                           dropdown is-open="status.isopen">
                           <button type="button"
                             class="btn btn-xs btn-default dropdown-toggle"
                             dropdown-toggle>
                             Take action... <span class="caret"></span>
                           </button>
+
+                          <!-- here is an anti-pattern here with the $parent reference, but leaving it for now
+                          Ben Wolkenfeld, 1/5/2014 -->
                           <ul class="dropdown-menu btn-xs" role="menu">
-                            <li><a href="#" ng-click="modalOpen('sm', 'Mark Complete')">Mark Complete</a></li>
-                            <li><a href="#" ng-click="modalOpen('sm', 'Reschedule')">Reschedule</a></li>
+                            <li><a href="#"
+                              ng-click="open('lg', 'Mark Complete', $parent.task)">Mark Complete</a></li>
+                            <li><a href="#" ng-click="open('lg', 'Reschedule', $parent.task)">Reschedule</a></li>
                             <li class="divider"></li>
-                            <li><a href="#" ng-click="modalOpen('sm', 'Skip')">Skip</a></li>
+                            <li><a href="#" ng-click="open('lg', 'Skip', $parent.task)">Skip</a></li>
                           </ul>
                         </div>
                         <!-- end single drop down button section -->
