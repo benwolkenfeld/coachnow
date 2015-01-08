@@ -1,19 +1,17 @@
-var app = angular.module("main", ["ui.bootstrap"]);
+var app = angular.module('coachNow', ['ui.bootstrap', 'coachNow.actionservice']);
+//var homeUrl = "http://10.37.129.2/~benwolkenfeld/CoachNow/";  // for testing in IE on parallels
 var homeUrl = "http://localhost/~benwolkenfeld/CoachNow/";
 
 // used for the action drop down on the Actions view panel
-app.controller("dropdownTaskFilterCtrl", function($scope, $http) {
+app.controller('dropdownTaskFilterCtrl', function($scope, actionService) {
 
-  //grab the open tasks from the service
-  $http.get(homeUrl + "data/tasks.json").
-  success(function(data, status, headers, config) {
+  //grab open actions from the action service and store them in scope
+  actionService.actions(homeUrl + 'data/tasks.json').then(function(data) {
     $scope.tasks = data;
-  }).
-  error(function(data, status, headers, config) {
-
-    //TO DO ITEM - figure out how to log errors and what we do with those
-    console.log("error fetching data from tasks.json" + status);
   });
+
+  // actionService.setTestVal('super duper gary cooper');
+  // console.log (actionService.testVal());
 
   $scope.status = {
     isopen: false
@@ -46,21 +44,6 @@ app.controller("dropdownTaskFilterCtrl", function($scope, $http) {
 
 	  console.log("new filter = " + $scope.taskFilter);
   };
-});
-
-// used to populate the task list from a server
-app.controller("tasksCtrl", function($scope, $http){
-  $http.get(homeUrl + "data/tasks.json").
-    success(function(data, status, headers, config) {
-      $scope.tasks = data;
-      console.log("length of my data = " + data.length);
-      console.log("")
-    }).
-    error(function(data, status, headers, config) {
-
-      //TO DO ITEM - figure out how to log errors and what we do with those
-      //console.log("error fetching data from tasks.json");
-    });
 });
 
 // custom task filter - 1 of 3
