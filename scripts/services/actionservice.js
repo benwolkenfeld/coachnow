@@ -1,5 +1,7 @@
-angular.module('coachNow.actionservice', [])
-.factory('actionService', function($http) {
+var actionSvc = angular.module('coachNow.actionservice', []);
+
+actionSvc.factory('ActionService', function($http) {
+  var allTasks = [];
 
   // pulls actions from the actions service for display
   // on main page in the task view
@@ -7,14 +9,20 @@ angular.module('coachNow.actionservice', [])
   return {
     actions: function(actionUrl) {
       return $http.get(actionUrl).then(function(result) {
-        return result.data;
+        allTasks = result.data;     // store it in the service
+        return result.data;        // return it to the controller that called the service
       });
+    },
+
+    addTask: function(theTask) {
+      //allTasks = theTasks;
+      allTasks.push(theTask);
+      console.log('in factory');
+      console.log('setTasks - a big number = ' + allTasks.length);
+    },
+
+    refreshTasks: function() {
+      return allTasks;
     }
   }
-
-  var testVal = '';
-
-  this.setTestVal = function(theVal) {
-    testVal = theVal;
-  };
 });

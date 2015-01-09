@@ -3,16 +3,44 @@ var app = angular.module('coachNow', ['ui.bootstrap', 'coachNow.actionservice'])
 var homeUrl = "http://localhost/~benwolkenfeld/CoachNow/";
 
 // used for the action drop down on the Actions view panel
-app.controller('dropdownTaskFilterCtrl', function($scope, actionService) {
+app.controller('dropdownTaskFilterCtrl', function($scope, ActionService) {
 
-  //grab open actions from the action service and store them in scope
-  actionService.actions(homeUrl + 'data/tasks.json').then(function(data) {
+  // *************** BEGIN new task entry section ****************
+  $scope.addTask = function () {
+
+    // TO DO - replace with new task form entry (need rules)
+    var newTask = {
+      "taskId": 9,
+      "taskTitle": "Ride your bike!",
+      "taskDueDate": "2015-01-02T18:00-6:00",
+      "taskDue":"later",
+      "taskStatus":"incomplete",
+      "taskCompleteDateTime": "",
+      "lastContactDateTime": "2014-12-09T08:30-6:00",
+      "lastContactTitle": "Time trial training ride",
+      "clientId": 100,
+      "clientFullName": "Ben Wolkenfeld",
+      "clientImage": "img/ben_wolkenfeld.jpg",
+      "clientSpecialty": "Cycling",
+      "clientFee": 150,
+      "clientPaymentStatus": "Current",
+      "actionsAvailable": ["complete","reschedule","skip"]
+    };
+    ActionService.addTask(newTask);
+    $scope.tasks = ActionService.refreshTasks();
+  }
+
+
+  // *************** BEGIN task data retrieval section ***************
+  // grab open actions from the action service and store them in scope
+  ActionService.actions(homeUrl + 'data/tasks.json').then(function(data) {
     $scope.tasks = data;
   });
+  // *************** END task data retrieval section ***************
 
-  // actionService.setTestVal('super duper gary cooper');
-  // console.log (actionService.testVal());
 
+
+  // *************** BEGIN task drop down and filter section ***************
   $scope.status = {
     isopen: false
   };
@@ -41,9 +69,8 @@ app.controller('dropdownTaskFilterCtrl', function($scope, actionService) {
 	  } else if (filter == '4'){
 	  	$scope.taskFilter = filter4;
 	  }
-
-	  console.log("new filter = " + $scope.taskFilter);
   };
+  // *************** end task drop down and filter section ***************
 });
 
 // custom task filter - 1 of 3
