@@ -38,7 +38,27 @@ app.controller('dropdownTaskFilterCtrl', function($scope, ActionService) {
   });
   // *************** END task data retrieval section ***************
 
+  // *************** BEGIN task label display logic section ***************
+  $scope.getTaskStatusStyle = function(taskId) {
+    if ($scope.getTaskDue(taskId) == 'yesterday') {
+      return 'label-danger';
+    } else if ($scope.getTaskDue(taskId) == 'today') {
+      return 'label-warning';
+    } else if ($scope.getTaskDue(taskId) == 'tomorrow') {
+      return 'label-info';
+    } else if ($scope.getTaskDue(taskId) == 'later') {
+      return 'label-default';
+    }
+  };
 
+  $scope.getTaskDue = function(taskId) {
+    for(var i = 0; i < $scope.tasks.length; i++) {
+      if ($scope.tasks[i].taskId == taskId) {
+        return $scope.tasks[i].taskDue;
+      }
+    }
+  };
+  // *************** END task label display logic section ***************
 
   // *************** BEGIN task drop down and filter section ***************
   $scope.status = {
@@ -52,14 +72,13 @@ app.controller('dropdownTaskFilterCtrl', function($scope, ActionService) {
   };
 
   // list of filters here - can add more as needed
-  var filter1 = {taskDue: ''};
+  var filter1 = {taskDue: 'yesterday'};
   var filter2 = {taskDue: 'today'};
   var filter3 = {taskDue: 'tomorrow'};
   var filter4 = {taskDue: 'later'};
+  var filter5 = {taskDue: ''};
 
   $scope.setTaskFilter = function(filter) {
-	  console.log("taskFilter = " + $scope.taskFilter);
-
 	  if(filter == '1'){
 	  	$scope.taskFilter = filter1;
 	  } else if (filter == '2'){
@@ -68,9 +87,16 @@ app.controller('dropdownTaskFilterCtrl', function($scope, ActionService) {
 		$scope.taskFilter = filter3;
 	  } else if (filter == '4'){
 	  	$scope.taskFilter = filter4;
-	  }
+	  } else if (filter == '5') {
+      $scope.taskFilter = filter5;
+    }
   };
   // *************** end task drop down and filter section ***************
+
+  $scope.getLastContactDate = function (lastContactEpic) {
+    console.log ('epic = ' + lastContactEpic);
+    return new Date(lastContactEpic);
+  }
 });
 
 // custom task filter - 1 of 3

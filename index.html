@@ -187,18 +187,20 @@
 
               <!-- Single button with dropdown-->
               <div class="btn-group pull-right" dropdown is-open="status.isopen">
-                <button type="button" class="btn btn-sm btn-primary" ng-click="addTask();">New action...</button>
+                <button type="button" class="btn btn-sm btn-primary" ng-click="addTask();">New action</button>
                 <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
                 dropdown-toggle>
                   Show open items by... <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
+                  <li><a href="#" ng-click="setTaskFilter('1')">Late items</a></li>
                   <li><a href="#" ng-click="setTaskFilter('2')">Due now</a></li>
                   <li><a href="#" ng-click="setTaskFilter('3')">Due tomorrow</a></li>
                   <li><a href="#" ng-click="setTaskFilter('4')">Due later</a></li>
                   <li class="divider"></li>
-                  <li><a href="#" ng-click="setTaskFilter('1')">Show me everything</a></li>
+                  <li><a href="#" ng-click="setTaskFilter('5')">Show me everything</a></li>
                 </ul>
+                <button type="button" class="btn btn-sm btn-primary">Review closed actions</button>
               </div>
               <!-- end single drop down button section -->
 
@@ -225,9 +227,13 @@
                       <span class="text-muted small">{{"(" + task.clientPaymentStatus + ")"}}
                     </div>
                     <div class="col-sm-4">
+                      <span class="label {{getTaskStatusStyle(task.taskId)}}">{{task.taskDue}}</span>
                       <span class="h5">{{task.taskTitle}}</span><br/>
+                      <!-- <span class="text-muted small">{{task.lastContactTitle +
+                        " on "}} {{1415392200000 | date:'shortDate'}}
+                      </span> -->
                       <span class="text-muted small">{{task.lastContactTitle +
-                        " on "}} + {{1415392200000 | date: 'shortdate'}}
+                        " on "}} {{getLastContactDate(task.lastContactDateTime) | date:'short'}}
                       </span>
                     </div>
                     <div class="col-sm-2">
@@ -242,7 +248,7 @@
                             Take action... <span class="caret"></span>
                           </button>
 
-                          <!-- here is an anti-pattern here with the $parent reference, but leaving it for now
+                          <!-- TO DO ITEM - Anti-pattern here with the $parent references, but leaving it for now
                           Ben Wolkenfeld, 1/5/2014 -->
                           <ul class="dropdown-menu btn-xs" role="menu">
                             <li><a href="#"
@@ -253,7 +259,6 @@
                           </ul>
                         </div>
                         <!-- end single drop down button section -->
-
 
                       </div>
                     </div>

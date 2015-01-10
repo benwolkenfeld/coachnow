@@ -15,7 +15,6 @@ actionSvc.factory('ActionService', function($http) {
     },
 
     addTask: function(theTask) {
-      //allTasks = theTasks;
       allTasks.push(theTask);
       console.log('in factory');
       console.log('setTasks - a big number = ' + allTasks.length);
