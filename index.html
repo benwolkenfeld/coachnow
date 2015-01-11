@@ -229,12 +229,10 @@
                     <div class="col-sm-4">
                       <span class="label {{getTaskStatusStyle(task.taskId)}}">{{task.taskDue}}</span>
                       <span class="h5">{{task.taskTitle}}</span><br/>
-                      <!-- <span class="text-muted small">{{task.lastContactTitle +
-                        " on "}} {{1415392200000 | date:'shortDate'}}
-                      </span> -->
                       <span class="text-muted small">{{task.lastContactTitle +
                         " on "}} {{getLastContactDate(task.lastContactDateTime) | date:'short'}}
                       </span>
+                      <span class="text-muted small">{{getCompletedInfo(task.taskId)}}</span>
                     </div>
                     <div class="col-sm-2">
                       <div ng-controller="taskActionModalCtrl">
