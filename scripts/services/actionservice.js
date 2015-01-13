@@ -31,7 +31,7 @@ actionSvc.factory('ActionService', function($http) {
       for (var i = 0; i< allTasks.length; i++) {
         if (allTasks[i].taskId == theTask.taskId) {
           allTasks[i].taskStatus = 'complete';
-          allTasks[i].taskCompleteDateTime = theTask.taskCompleteDateTime.toISOString();
+          allTasks[i].taskCompleteDateTime = theTask.taskCompleteDateTime;
           allTasks[i].taskDue = 'complete';
           break;
         }

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="coachNow">
   <head>
-    <script src="scripts/angular.min.js"></script>
+<!--    <script src="scripts/angular.min.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
     <script src="scripts/ui-bootstrap-tpls-0.12.0.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services/actionservice.js"></script>
@@ -231,8 +232,8 @@
                       <span class="h5">{{task.taskTitle}}</span><br/>
                       <span class="text-muted small">{{task.lastContactTitle +
                         " on "}} {{getLastContactDate(task.lastContactDateTime) | date:'short'}}
-                      </span>
-                      <span class="text-muted small">{{getCompletedInfo(task.taskId)}}</span>
+                      </span><br/>
+                      <span class="text-muted small"><em>{{getCompletedInfo(task.taskId)}}</em></span>
                     </div>
                     <div class="col-sm-2">
                       <div ng-controller="taskActionModalCtrl">

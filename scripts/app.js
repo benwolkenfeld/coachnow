@@ -3,7 +3,7 @@ var app = angular.module('coachNow', ['ui.bootstrap', 'coachNow.actionservice'])
 var homeUrl = "http://localhost/~benwolkenfeld/CoachNow/";
 
 // used for the action drop down on the Actions view panel
-app.controller('dropdownTaskFilterCtrl', function($scope, ActionService) {
+app.controller('dropdownTaskFilterCtrl', function($scope, $filter, ActionService) {
 
   // *************** BEGIN new task entry section ****************
   $scope.addTask = function () {
@@ -57,6 +57,14 @@ app.controller('dropdownTaskFilterCtrl', function($scope, ActionService) {
     return ActionService.findTaskById(taskId).taskDue;
   };
   // *************** END task label display logic section ***************
+
+  // *************** BEGIN task completed display logic section ***************
+  $scope.getCompletedInfo = function(taskId) {
+    var taskComplete = ActionService.findTaskById(taskId);
+    if (taskComplete.taskCompleteDateTime != '')
+      return 'Completed on ' + $filter('date')(taskComplete.taskCompleteDateTime, 'short');
+  }
+  // *************** BEGIN task completed display logic section ***************
 
   // *************** BEGIN task drop down and filter section ***************
   $scope.status = {
@@ -204,7 +212,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedFo
     // the user to make in the model in this controller's $scope
     // Ben Wolkenfeld, 1/10/2015
     if (selectedForm == 'Mark Complete') {
-      $scope.task.taskCompleteDateTime = $scope.datePickerDate;
+      $scope.task.taskCompleteDateTime = $scope.getTaskCompleteDate();
       $modalInstance.close($scope.task);
     }
     else {
@@ -218,13 +226,34 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedFo
 
   // ***************** Begin Date Picker Section *****************
   $scope.today = function() {
-    $scope.datePickerDate = new Date();
-    $scope.datePickerDate = $filter('date')($scope.datePickerDate, 'dd-MMMM-yyyy');
+    $scope.datePicked = new Date();
+    if ($scope.datePicked.getHours() > 12) {
+      $scope.timePickerHour = $scope.datePicked.getHours() - 12;
+      $scope.timePickerAMPM = 'PM';
+    }
+    else{
+      $scope.timePickerHour = $scope.datePicked.getHours();
+      $scope.timePickerAMPM = 'AM';
+    }
+    var theMinutes = $scope.datePicked.getMinutes();
+    if (theMinutes < 8){
+      $scope.timePickerMinute = ':00';
+    } else if (theMinutes < 23) {
+      $scope.timePickerMinute = ':15';
+    } else if (theMinutes < 38) {
+      $scope.timePickerMinute = ':30';
+    } else if (theMinutes < 60) {
+
+      // if we are at hh:59, not going to move the hour
+      // ahead - just set to 11:45 as default
+      // Ben Wolkenfeld, 1/12/2015
+      $scope.timePickerMinute = ':45';
+    }
   };
   $scope.today();
 
   $scope.clear = function () {
-    $scope.datePickerDate = null;
+    $scope.datePicked = null;
   };
 
   $scope.open = function($event) {
@@ -236,20 +265,23 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedFo
 
   $scope.dateOptions = {
     formatYear: 'yy',
-    startingDay: 0
+    startingDay: 1
   };
   // ***************** End Date Picker Section *****************
 
-  // ***************** Begin Time Picker Section *****************
-  $scope.timePickerTime = new Date();
+  $scope.getTaskCompleteDate = function() {
+    var theDateStr = $filter('date')($scope.datePicked, 'yyyy/MM/dd');
 
-  $scope.changed = function () {
-    $log.log('Time changed to: ' + $scope.mytime);
-  };
+    var theTimeHour;
+    if ($scope.timePickerAMPM == 'PM') {
+      theTimeHour = parseInt($scope.timePickerHour) + 12;
+    } else {
+      theTimeHour = parseInt($scope.timePickerHour);
+    }
+    var theTimeStr = theTimeHour + $scope.timePickerMinute + ':00';
 
-  $scope.setTaskCloseNow = function() {
-    //set task close to now
+    var theDateTimeStr = theDateStr + ' ' + theTimeStr;
+    theDate = new Date(theDateTimeStr);
+    return theDate.toISOString();
   }
-  // ***************** End Time Picker Section *****************
-  
 });

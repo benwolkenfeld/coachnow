@@ -11,12 +11,10 @@ Ben Wolkenfeld, 1/4/15-->
       <span>Ready to mark <strong>{{task.taskTitle }}</strong>
         for {{task.clientFullName}} complete?</span><br/><br/>
       <div class="form-group">
-        <label for="TaskCompleteDateTime" class="col-sm-2 control-label">Done on</label>
+        <label for="datePickerDate" class="col-sm-2 control-label">Done on</label>
         <div class="col-sm-3">
           <p class="input-group">
-            <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy"
-              ng-model="datePickerDate" is-open="opened" min-date="minDate" max-date="'2030-12-31'"
-              datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="datePicked" is-open="opened" min-date="minDate" max-date="'2030-12-31'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
@@ -39,23 +37,22 @@ Ben Wolkenfeld, 1/4/15-->
           </select>
         </div>
         <div class="col-sm-2 push-left">
-          <select class="form-control input-small" ng-model="timePickerMinutes">
+          <select class="form-control input-small" ng-model="timePickerMinute">
             <option>:00</option>
-            <option>:05</option>
+            <option>:15</option>
             <option>:30</option>
             <option>:45</option>
           </select>
         </div>
         <div class="col-sm-2">
-          <select class="form-control input-medium" ng-model="timePickerAM.PM">
+          <select class="form-control input-medium" ng-model="timePickerAMPM">
             <option>AM</option>
             <option>PM</option>
           </select>
         </div>
-            <!-- <timepicker ng-model="timePickerTime" ng-change="timePickerChanged()" hour-step="1" minute-step="15"></timepicker> -->
         <div class="col-sm-1">
           <p class="input-group">
-            <button class="btn btn-info" ng-click="setTaskCloseNow()">Now</button>
+            <!-- <button class="btn btn-info" ng-click="setTaskCloseNow()">Now</button> -->
           </p>
         </div>
       </div>
