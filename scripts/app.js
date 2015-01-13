@@ -248,6 +248,9 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedFo
       // ahead - just set to 11:45 as default
       // Ben Wolkenfeld, 1/12/2015
       $scope.timePickerMinute = ':45';
+
+      // clean up the default of the initial value displayed in the dialog
+      $scope.datePicked = $filter('date')($scope.datePicked, 'shortDate');
     }
   };
   $scope.today();
