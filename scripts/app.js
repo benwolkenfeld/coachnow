@@ -206,6 +206,7 @@ app.controller('taskActionModalCtrl', function ($scope, $modal, $log, ActionServ
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedForm, task, ActionService, $filter) {
 
   $scope.selectedForm = selectedForm;
+  console.log('selectedForm = ' + selectedForm);
   $scope.task = task;
 
   $scope.ok = function () {
