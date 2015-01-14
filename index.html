@@ -176,6 +176,11 @@
               <h4>Today&#39;s Schedule</h4>
             </div>
             <div class="panel-body">
+              <div>
+                <button class="btn btn-xs btn-default pull-left">&lt;&lt;&nbsp;&nbsp;Yesterday</button>
+                <button class="btn btn-xs btn-default pull-right">Tomorrow&nbsp;&nbsp;&gt;&gt;</button>
+                <br /><br />
+              </div>
               <div id="timeline" style="width: 100%; height: 100%;"></div>
               <!-- end calendar panel -->
             </div>
@@ -185,24 +190,26 @@
           <div class="panel panel-default" ng-controller="dropdownTaskFilterCtrl">
             <div class="panel-heading clearfix">
 
-              <!-- Single button with dropdown-->
-              <div class="btn-group pull-right" dropdown is-open="status.isopen">
-                <button type="button" class="btn btn-sm btn-primary" ng-click="addTask();">New action</button>
-                <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
-                dropdown-toggle>
-                  Show open items by... <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#" ng-click="setTaskFilter('1')">Late items</a></li>
-                  <li><a href="#" ng-click="setTaskFilter('2')">Due now</a></li>
-                  <li><a href="#" ng-click="setTaskFilter('3')">Due tomorrow</a></li>
-                  <li><a href="#" ng-click="setTaskFilter('4')">Due later</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#" ng-click="setTaskFilter('5')">Show me everything</a></li>
-                </ul>
-                <button type="button" class="btn btn-sm btn-primary">Review closed actions</button>
+              <!-- button group with actions -->
+              <div class="btn-group pull-right" role="group">
+                <div class="btn-group pull-right" dropdown is-open="status.isopen">
+                  <button type="button" class="btn btn-sm btn-primary" ng-click="addTask();">New action</button>
+                  <button type="button" class="btn btn-sm btn-primary">Review closed actions</button>
+                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
+                  dropdown-toggle>
+                    Show open items by... <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" ng-click="setTaskFilter('1')">Late items</a></li>
+                    <li><a href="#" ng-click="setTaskFilter('2')">Due now</a></li>
+                    <li><a href="#" ng-click="setTaskFilter('3')">Due tomorrow</a></li>
+                    <li><a href="#" ng-click="setTaskFilter('4')">Due later</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" ng-click="setTaskFilter('5')">Show me everything</a></li>
+                  </ul>
+                </div>
               </div>
-              <!-- end single drop down button section -->
+              <!-- end button group section -->
 
               <h4>Actions</h4>
             </div>
