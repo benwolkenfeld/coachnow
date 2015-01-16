@@ -5,5 +5,5 @@ var app = angular.module('coachNow', [
   ]);
 
 //var homeUrl = "http://10.37.129.2/~benwolkenfeld/CoachNow/";  // for testing in IE on parallels
-var homeUrl = "http://localhost/~benwolkenfeld/CoachNow/";
-//var homeUrl = 'http://benwolkenfeld.github.io/coachnow/';
+//var homeUrl = "http://localhost/~benwolkenfeld/CoachNow/";
+var homeUrl = 'http://benwolkenfeld.github.io/coachnow/';
