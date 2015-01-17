@@ -1,4 +1,6 @@
-var app = angular.module('coachNow.actioncontroller', []);
+var app = angular.module('coachNow.actionview', ['ngRoute']);
+
+
 // used for the action panel on the Actions view panel
 app.controller('actionCtrl', function($scope, $filter, ActionService) {
 
@@ -30,8 +32,9 @@ app.controller('actionCtrl', function($scope, $filter, ActionService) {
 
   // *************** BEGIN task data retrieval section ***************
   // grab open actions from the action service and store them in scope
-  ActionService.getTasks(homeUrl + 'app/components/actions/actions.json').then(function(data) {
+  ActionService.getTasks('app/components/actions/actions.json').then(function(data) {
     $scope.tasks = data;
+    console.log ('data count = ' + data.length);
   });
   // *************** END task data retrieval section ***************
 
@@ -126,7 +129,7 @@ app.controller('actionCtrl', function($scope, $filter, ActionService) {
     // ******************* begin modal dialog controller section *******************
     $scope.open = function (size, selectedForm, task) {
       var modalInstance = $modal.open({
-        templateUrl: './modal-task-action-template.html',
+        templateUrl: 'app/components/actions/modal-task-action-template.html',
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
