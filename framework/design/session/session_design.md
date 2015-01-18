@@ -19,9 +19,9 @@ Example is a scheduled workout that could result in a post-ride analysis, workou
 Examples of these include: post-event analysis, reminder to contact a client
 
 ## 2. Technical Details
-
-### 2.1 API
-#### 2.1.1 Session Model
+### 2.1 Requirements
+### 2.2 API
+#### 2.2.1 Session Model
 The schema of the session model.
 * Session
   * Owner
@@ -41,22 +41,29 @@ The schema of the session model.
   * Notes
     * Note
 
-#### 2.1.2 Session Business Layer.
+#### 2.2.2 Session Business Layer.
 
 *SessionManager* - The business logic (agnostic to view) for managing
 *sessions*. The API provides the ability to query, retrieve, update, and
 delete *sessions*. It will also do any necessary validation of the *session*
 model before persisting out the model to the data source.
 
-#### 2.1.3 Session Data Access.
+#### 2.2.3 Session Data Access.
 
 *DataSource* - The session model will currently be serialized out in *JSON*
 format to the local *PouchDB* instance. The *PouchDB* instance
-will be setup to [replicate][http://pouchdb.com/api.html#replication]
+will be setup to [replicate](http://pouchdb.com/api.html#replication)
 to the centrally hosted *CouchDB* instance. This provides the *framework*
 with the unique feature of being able to function completely _offline_.
 
-### 2.2 Alternatives and Considerations.
+### 2.3 Alternatives and Considerations.
+
+The combination of *CouchDB* and *PouchDB* is being considered for the data 
+persistence layer. This combination provides the *framework* with the ability
+to continue to work with almost complete functionality even if the consumer
+does not have an internet connection.
+
+*TODO* finish pulling in information from the "Technical Survey".
 
 ## 3. Third Party Software
 
