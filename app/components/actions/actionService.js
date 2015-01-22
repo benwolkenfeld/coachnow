@@ -44,9 +44,75 @@ actionSvc.factory('ActionService', function($http) {
           return allTasks[i];
         }
       }
+    },
+
+    // used on actions page - coach performance chart
+    chartRefreshCoachPerformance: function(actionUrl) {
+      return $http.get(actionUrl).then(function(result) {
+        allTasks = result.data;     // store it in the service
+                                    // to do item - rewire all $http calls to lean rest services
+        var numSkipped = 0,
+            numCompleted = 0,
+            numRescheduled = 0;
+
+        for(var i = 0; i < allTasks.length; i++) {
+          switch (result.data[i].taskStatus) {
+            case 'complete':
+              numCompleted++;
+              break;
+            case 'rescheduled':
+              numRescheduled++;
+              break;
+            case 'skipped':
+              numSkipped++;
+              break;
+          }
+        }
+
+        // assemble the data for the chart
+        var chartData = [
+          {
+            value: numCompleted,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Completed"
+          },
+          {
+            value: numRescheduled,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "Rescheduled"
+          },
+          {
+            value: numSkipped,
+            color:"#F7464A",
+            highlight: "#FF5A5E",
+            label: "Skipped"
+          }
+        ];
+
+        return chartData;
+      })
     }
   }
 });
+
+// value: 300,
+// color:"#F7464A",
+// highlight: "#FF5A5E",
+// label: "Red"
+// },
+// {
+//   value: 50,
+//   color: "#46BFBD",
+//   highlight: "#5AD3D1",
+//   label: "Green"
+// },
+// {
+//   value: 100,
+//   color: "#FDB45C",
+//   highlight: "#FFC870",
+//   label: "Yellow"
 
 // {
 //   "taskId": 1,
