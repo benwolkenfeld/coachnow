@@ -71,6 +71,10 @@ body {
   padding-left:0;
   padding-right:0;
 }
+.no-gutter-9 [class*="-9"] {
+  padding-left:0;
+  padding-right:0;
+}
 .no-gutter-6 [class*="-6"] {
   padding-left:0;
   padding-right:0;
@@ -133,3 +137,34 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+/*
+* Chart styling
+*/
+.chart-legend ul {
+  list-style: none;
+  width: 100%;
+  margin: 30px auto 0;
+}
+.chart-legend li {
+  text-indent: 16px;
+  line-height: 24px;
+  position: relative;
+  font-weight: 200;
+  display: block;
+  float: left;
+  width: 50%;
+  font-size: 0.8em;
+}
+.chart-legend  li:before {
+  display: block;
+  width: 10px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 3px;
+  content: "";
+}
+.skipped:before { background-color: #F7464A; }
+.completed:before { background-color: #5CB85C; }
+.rescheduled:before { background-color: #4D5360; }

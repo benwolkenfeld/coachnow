@@ -73,14 +73,14 @@ actionSvc.factory('ActionService', function($http) {
         var chartData = [
           {
             value: numCompleted,
-            color: "#46BFBD",
-            highlight: "#5AD3D1",
+            color: "#5CB85C",
+            highlight: "#60d660",
             label: "Completed"
           },
           {
             value: numRescheduled,
-            color: "#FDB45C",
-            highlight: "#FFC870",
+            color: "#4D5360",
+            highlight: "#616774",
             label: "Rescheduled"
           },
           {
@@ -96,38 +96,3 @@ actionSvc.factory('ActionService', function($http) {
     }
   }
 });
-
-// value: 300,
-// color:"#F7464A",
-// highlight: "#FF5A5E",
-// label: "Red"
-// },
-// {
-//   value: 50,
-//   color: "#46BFBD",
-//   highlight: "#5AD3D1",
-//   label: "Green"
-// },
-// {
-//   value: 100,
-//   color: "#FDB45C",
-//   highlight: "#FFC870",
-//   label: "Yellow"
-
-// {
-//   "taskId": 1,
-//   "taskTitle": "30-day phone call due",
-//   "taskDueDate": "2015-01-02T12:00-06:00",
-//   "taskDue":"today",
-//   "taskStatus":"incomplete",
-//   "taskCompleteDateTime": "",
-//   "lastContactDateTime": "2015-01-02T10:00-06:00",
-//   "lastContactTitle": "Coaching session",
-//   "clientId": 100,
-//   "clientFullName": "Ben Wolkenfeld",
-//   "clientImage": "img/ben_wolkenfeld.jpg",
-//   "clientSpecialty": "Cycling",
-//   "clientFee": 150,
-//   "clientPaymentStatus": "Current",
-//   "actionsAvailable": ["complete","reschedule","skip"]
-// }

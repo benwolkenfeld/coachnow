@@ -1,10 +1,15 @@
+<!-- using Google charts, specifically the timeline control -->
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization',
+'version':'1','packages':['timeline']}]}"></script>
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4 col-md-3 sidebar">
       <!-- begin operational overview panel -->
       <div class="panel panel-default">
         <div class="panel-heading ">
-          <h4>Operational Overview</h4>
+          <strong>Operational Overview</strong>
         </div>
         <!-- end panel heading section -->
 
@@ -12,7 +17,7 @@
         <div class="panel-body">
           <div class="container-fluid">
             <div class="row no-gutter-12">
-              <div class="col-sm-12 small"><span class="h4"><strong>Active clients:</strong> 20</span></div>
+              <div class="col-sm-12 small"><span class="h5"><strong>Active clients:</strong> 20</span></div>
             </div>
             <div class="row no-gutter-12">
               <div class="col-sm-12 small">&nbsp;</div>
@@ -97,10 +102,10 @@
       </div>
       <!-- end operational overview panel -->
 
-      <!-- begin chart directive demo panel here -->
+      <!-- begin 30-day activity performance panel here -->
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
-          <h4>30-Day Activity Performance</h4>
+          <strong>30-Day Activity Performance</strong>
         </div>
         <!-- end panel heading section -->
 
@@ -111,14 +116,21 @@
             chart-type="donut"
             chart-subject="Coach-Activity-Performance">
           </div>
+          <div id="donut-legend" class="chart-legend">
+            <ul>
+              <li class="skipped">skipped</li>
+              <li class="completed">complete</li>
+              <li class="rescheduled">rescheduled</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <!-- end athlete workouts panel here -->
+      <!-- end 30-day activity performance here -->
 
       <!-- begin athlete nutrition panel here -->
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
-          <h4>Sample Pizza Pie Chart</h4>
+          <strong>Non-Active Athletes</strong>
         </div>
         <!-- end panel heading section -->
 
@@ -126,16 +138,65 @@
         <div class="panel-body">
 
           <!-- insert charts here -->
-          <img src="assets/img/chart2sample.png">
+          <div class="container-fluid">
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Jim Johnson</a> <span class="text-muted">(28 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Janet Krauthammer</a> <span class="text-muted">(21 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Stevie Wonder</a> <span class="text-muted">(20 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Rae Hewitt</a> <span class="text-muted">(20 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Ron Stirrup</a> <span class="text-muted">(19 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Ron Paul</a> <span class="text-muted">(18 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Rhonda Lewis</a> <span class="text-muted">(16 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Stacy Stevenson</a> <span class="text-muted">(14 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Magic Jordan</a> <span class="text-muted">(13 days)</span></div>
+            </div>
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><a href="">Lex Luthor</a> <span class="text-muted">(13 days)</span></div>
+            </div>
+          </div>
+          <div class="text-center">
+            <nav>
+              <ul class="pagination pagination-sm text-center">
+                <li class="disabled"><a href="#" area-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
       <!-- end athlete nutrition panel here -->
+
     </div>
+
     <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
       <!-- calendar panel section -->
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Today&#39;s Schedule</h4>
+          Today&#39;s Schedule
         </div>
         <div class="panel-body">
           <div>
@@ -143,7 +204,7 @@
             <button class="btn btn-xs btn-default pull-right">Tomorrow&nbsp;&nbsp;&gt;&gt;</button>
             <br /><br />
           </div>
-          <!-- <div id="timeline" style="width: 100%; height: 100%;"></div> -->
+          <div id="timeline" style="width: 100%; height: 100%;"></div>
           <!-- end calendar panel -->
         </div>
       </div>
@@ -243,3 +304,5 @@
     </div>
   </div>
 </div>
+<!-- placed down here so the timeline control will execute -->
+<script src="../../app/components/charts/google-timeline-charts.js"></script>

@@ -27,7 +27,7 @@ function drawChart() {
     [ 'Phone Call', new Date(2015, 1, 2, 11, 0, 0), new Date(2015, 1, 2, 14, 30, 0) ],
     [ 'Training Plan', new Date(2015, 1, 2, 14, 30, 0), new Date (2015, 1, 2, 16, 0, 0) ]]);
     var options = {
-      colors: ['#55B562', '#51C1DC', '#F3AB58', '#DD5552'],
+      colors: ['#4D5360', '#51C1DC', '#F3AB58', '#DD5552'],
       timeline: {
         rowLabelStyle: {fontName: 'Helvetica Neue', fontSize: 11 },
         barLabelStyle: { fontName: 'Garamond', fontSize: 10 } }

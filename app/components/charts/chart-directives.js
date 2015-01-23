@@ -22,7 +22,10 @@ chartDir.directive('coachnowChartDonut', function(ActionService) {
       // get the data for our chart from the service here
       ActionService.chartRefreshCoachPerformance('app/components/actions/actions.json').then(function(data) {
             doughnutData = data;
-            window.myDoughnut = chart.Doughnut(doughnutData, {responsive: true});
+            chart.Doughnut(doughnutData,
+            {
+              responsive: true,
+            });
       });
     }
   }
