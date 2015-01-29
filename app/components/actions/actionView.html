@@ -1,8 +1,3 @@
-<!-- using Google charts, specifically the timeline control -->
-<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization',
-'version':'1','packages':['timeline']}]}"></script>
-
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4 col-md-3 sidebar">
@@ -111,17 +106,8 @@
 
         <!-- begin panel body section -->
         <div class="panel-body">
-          <div coachnow-chart-donut
-            chart-name="Coach Performance"
-            chart-type="donut"
-            chart-subject="Coach-Activity-Performance">
-          </div>
-          <div id="donut-legend" class="chart-legend">
-            <ul>
-              <li class="skipped">skipped</li>
-              <li class="completed">complete</li>
-              <li class="rescheduled">rescheduled</li>
-            </ul>
+          <div ng-controller="nvd3Charts.CoachPerformanceChartCtrl">
+            <nvd3 options="options" data="data"></nvd3>
           </div>
         </div>
       </div>
@@ -196,15 +182,13 @@
       <!-- calendar panel section -->
       <div class="panel panel-default">
         <div class="panel-heading">
-          Today&#39;s Schedule
+          <h4>Today&#39;s Schedule</h4>
         </div>
         <div class="panel-body">
-          <div>
-            <button class="btn btn-xs btn-default pull-left">&lt;&lt;&nbsp;&nbsp;Yesterday</button>
-            <button class="btn btn-xs btn-default pull-right">Tomorrow&nbsp;&nbsp;&gt;&gt;</button>
-            <br /><br />
+          <div ng-controller="nvd3Charts.SnapshotChartCtrl">
+            <nvd3 options="options" data="data" config="config"></nvd3>
           </div>
-          <div id="timeline" style="width: 100%; height: 100%;"></div>
+
           <!-- end calendar panel -->
         </div>
       </div>
@@ -304,5 +288,3 @@
     </div>
   </div>
 </div>
-<!-- placed down here so the timeline control will execute -->
-<script src="../../app/components/charts/google-timeline-charts.js"></script>

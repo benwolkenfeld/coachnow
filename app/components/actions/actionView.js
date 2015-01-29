@@ -1,5 +1,5 @@
 var actionView = angular.module('coachNow.actionview',
-  ['ngRoute', 'coachNow.chart-directives']);
+  ['ngRoute']);
 
 // used for the action panel on the Actions view panel
 actionView.controller('actionCtrl', function($scope, $filter, ActionService) {

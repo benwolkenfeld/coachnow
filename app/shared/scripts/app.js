@@ -3,7 +3,8 @@ var app = angular.module('coachNow', [
   'ui.bootstrap',
   'coachNow.actionservice',
   'coachNow.actionview',
-  'coachNow.chart-directives'
+  'nvd3Charts.SnapshotChartController',
+  'nvd3Charts.CoachPerformanceChartController'
   ]);
 
 app.config(['$routeProvider', function($routeProvider) {

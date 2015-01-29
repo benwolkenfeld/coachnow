@@ -15,10 +15,18 @@
     <script src="app/shared/scripts/app.js"></script>
     <script src="app/components/actions/actionView.js"></script>
     <script src="app/components/actions/actionService.js"></script>
-    <script src="app/components/charts/Chart.min.js"></script>
-    <script src="app/components/charts/chart-directives.js"></script>
 
+    <!-- load up the angular nvd3 stuff (http://krispo.github.io/angular-nvd3/#/) -->
+    <script src="app/components/charts/nvd3/d3.min.js"></script>
+    <script src="app/components/charts/nvd3/nv.d3.min.js"></script>
+    <script src="app/components/charts/nvd3/angular-nvd3.min.js"></script>
 
+    <!-- load up the custom charts using nvd3 -->
+    <script src="app/components/charts/chart-today-snapshot-controller.js"></script>
+    <script src="app/components/charts/chart-coach-performance-controller.js"></script>
+    <link rel="stylesheet" href="app/components/charts/nvd3/nv.d3.min.css">
+
+    <!-- now load up the stylesheets -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
   </head>
