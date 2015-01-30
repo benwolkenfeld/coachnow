@@ -182,7 +182,7 @@
       <!-- calendar panel section -->
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>Today&#39;s Schedule</h4>
+          <strong>Today&#39;s Schedule</strong>
         </div>
         <div class="panel-body">
           <div ng-controller="nvd3Charts.SnapshotChartCtrl">
@@ -198,11 +198,11 @@
         <div class="panel-heading clearfix">
 
           <!-- button group with actions -->
-          <div class="btn-group pull-right" role="group">
+          <div class="pull-right" role="group"">
             <div class="btn-group pull-right" dropdown is-open="status.isopen">
-              <button type="button" class="btn btn-sm btn-primary" ng-click="addTask();">New action</button>
-              <button type="button" class="btn btn-sm btn-primary" ng-click="setTaskFilter('1')">Review closed actions</button>
-              <button type="button" class="btn btn-sm btn-primary dropdown-toggle"
+              <button type="button" class="btn btn-sm" ng-click="addTask();">New action</button>
+              <button type="button" class="btn btn-sm" ng-click="setTaskFilter('1')">Review closed actions</button>
+              <button type="button" class="btn btn-sm dropdown-toggle"
               dropdown-toggle>
               Show open items by... <span class="caret"></span>
             </button>
@@ -218,7 +218,7 @@
         </div>
         <!-- end button group section -->
 
-        <h4>Actions</h4>
+        <strong>Actions</strong>
       </div>
       <!-- end panel heading section -->
 
