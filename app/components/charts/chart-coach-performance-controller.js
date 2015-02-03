@@ -11,7 +11,7 @@ app.controller('nvd3Charts.CoachPerformanceChartCtrl', function($scope) {
       x: function(d){return d.key;},
       y: function(d){return d.y;},
       showLabels: false,
-      color: ['#46BFBD', '#4D5360', '#F7464A'],
+      color: ['#51C1DC', '#F3AB58', '#F7464A'],
       pie: {
         startAngle: function(d) { return d.startAngle -Math.PI/2 },
         endAngle: function(d) { return d.endAngle -Math.PI/2 }

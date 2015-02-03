@@ -26,17 +26,14 @@ app.controller('nvd3Charts.SnapshotChartCtrl', function($scope) {
         tickFormat: function(d, i){
           if (d==6)
           {
-            console.log('noon i = ' + i);
             return "Noon";
           }
           else if (d<6)
           {
-            console.log('am i = ' + i);
             return (d+6)+":00am";
           }
           else
           {
-            console.log('pm i = ' + i);
             return (d-6)+":00pm";
           }
         }

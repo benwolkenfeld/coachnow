@@ -182,33 +182,45 @@ actionView.controller('actionCtrl', function($scope, $filter, ActionService) {
     // ***************** Begin Date Picker Section *****************
     $scope.today = function() {
       $scope.datePicked = new Date();
-      if ($scope.datePicked.getHours() > 12) {
-        $scope.timePickerHour = $scope.datePicked.getHours() - 12;
-        $scope.timePickerAMPM = 'PM';
-      }
-      else{
-        $scope.timePickerHour = $scope.datePicked.getHours();
-        $scope.timePickerAMPM = 'AM';
-      }
-      var theMinutes = $scope.datePicked.getMinutes();
-      if (theMinutes < 8){
-        $scope.timePickerMinute = ':00';
-      } else if (theMinutes < 23) {
-        $scope.timePickerMinute = ':15';
-      } else if (theMinutes < 38) {
-        $scope.timePickerMinute = ':30';
-      } else if (theMinutes < 60) {
+      $scope.theHours = $scope.datePicked.getHours();
+
+      var chkMinutes = $scope.datePicked.getMinutes();
+      if (chkMinutes < 8){
+        $scope.theMinutes = '00';
+      } else if (chkMinutes < 23) {
+        $scope.theMinutes = '15';
+      } else if (chkMinutes < 38) {
+        $scope.theMinutes = '30';
+      } else if (chkMinutes < 60) {
 
         // if we are at hh:59, not going to move the hour
-        // ahead - just set to 11:45 as default
+        // ahead - just set to hh:45 as default.  Useful to simplify something like 11:59pm
         // Ben Wolkenfeld, 1/12/2015
-        $scope.timePickerMinute = ':45';
-
-        // clean up the default of the initial value displayed in the dialog
-        $scope.datePicked = $filter('date')($scope.datePicked, 'shortDate');
+        $scope.theMinutes = '45';
       }
+
+      $scope.timePicked = new Date($scope.datePicked.getFullYear(),
+                                    $scope.datePicked.getMonth(),
+                                    $scope.datePicked.getDay() + 1,
+                                    $scope.theHours,
+                                    $scope.theMinutes);
+
+      // clean up the default of the initial value displayed in the dialog
+      $scope.datePicked = $filter('date')($scope.datePicked, 'shortDate');
+      $scope.timePickerTime = $scope.timePicked;
     };
-    $scope.today();
+
+    $scope.dateTimeInit = function() {
+      $scope.hstep = 1;
+      $scope.mstep = 15;
+      $scope.ismeridian = true;
+
+      // set the default date and time
+      $scope.today();
+    }
+
+    // initialize the date and time pickers here
+    $scope.dateTimeInit();
 
     $scope.clear = function () {
       $scope.datePicked = null;
@@ -229,16 +241,9 @@ actionView.controller('actionCtrl', function($scope, $filter, ActionService) {
 
     $scope.getTaskCompleteDate = function() {
       var theDateStr = $filter('date')($scope.datePicked, 'yyyy/MM/dd');
-
-      var theTimeHour;
-      if ($scope.timePickerAMPM == 'PM') {
-        theTimeHour = parseInt($scope.timePickerHour) + 12;
-      } else {
-        theTimeHour = parseInt($scope.timePickerHour);
-      }
-      var theTimeStr = theTimeHour + $scope.timePickerMinute + ':00';
-
+      var theTimeStr = $filter('date')($scope.timePickerTime, 'h:m a');
       var theDateTimeStr = theDateStr + ' ' + theTimeStr;
+      
       theDate = new Date(theDateTimeStr);
       return theDate.toISOString();
     }
