@@ -49,7 +49,7 @@ app.controller('nvd3Charts.SnapshotChartCtrl', function($scope) {
   $scope.data = [
   {
     "key": "Free..6:00am - 10:00am",
-    "color": "#55B562",
+    "color": "#aaaaaa",
     "values": [
     {
       "label" : "Free" ,
@@ -133,7 +133,7 @@ app.controller('nvd3Charts.SnapshotChartCtrl', function($scope) {
   },
   {
     "key": "Free..11:30am - 1:00pm",
-    "color": "#55B562",
+    "color": "#aaaaaa",
     "values": [
     {
       "label" : "Free" ,
@@ -217,7 +217,7 @@ app.controller('nvd3Charts.SnapshotChartCtrl', function($scope) {
   },
   {
     "key": "Free..1:30pm - 2:00pm",
-    "color": "#55B562",
+    "color": "#aaaaaa",
     "values": [
     {
       "label" : "Free" ,
@@ -301,7 +301,7 @@ app.controller('nvd3Charts.SnapshotChartCtrl', function($scope) {
   },
   {
     "key": "Free..5:00pm - 6:00pm",
-    "color": "#55B562",
+    "color": "#aaaaaa",
     "values": [
     {
       "label" : "Free" ,
