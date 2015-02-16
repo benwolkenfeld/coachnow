@@ -23,8 +23,8 @@
               </div>
             </div>
             <div class="row no-gutter-6" ng-repeat="client in clients | filter:search">
-              <div class="col-sm-6 small"><a href="" ng-click="selectClient(client.clientId)">{{client.clientFullName}}</a></div>
-              <div class="col-sm-6 small">{{client.clientSpecialty}}</div>
+              <div class="col-sm-6"><a href="" ng-click="selectClient(client.clientId)">{{client.clientFullName}}</a></div>
+              <div class="col-sm-6">{{client.clientSpecialty}}</div>
             </div>
           </div>
         </div>
@@ -45,10 +45,31 @@
 
         <!-- begin panel body section -->
         <div class="panel-body">
-          <div class="container-fluid">
-            <div class="row" ng-controller="clientOverviewController">
-              (placeholder)
-           </div>
+          <div class="container-fluid" ng-controller="clientOverviewController">
+            <div class="row" ng-hide="athleteLoaded">
+              <span class="text-center text-muted small">No athlete selected.</span>
+            </div>
+            <div class="row" ng-show="athleteLoaded" >
+              <div class="col-sm-2">
+                <img class="img-thumbnail" ng-src="{{clientDetails.clientImage}}">
+              </div>
+              <div class="col-sm-4">
+                <span class="h5">{{clientDetails.clientFullName}}</span><br/>
+                <span class="text-muted small">{{clientDetails.clientSpecialty}}</span>
+                <br/><br/>
+                <span class="text-muted small">{{clientDetails.clientFee | currency }} - {{clientDetails.clientPaymentOption}}</span>
+              </div>
+              <div class="col-sm-3">
+                <span class="h5">{{clientDetails.clientPhone}}</span><br/>
+                <span class="text-muted small">{{clientDetails.clientAddress}}</span>
+              </div>
+              <div class="col-sm-3">
+                <span class="h5">Groups</span><br/>
+                <span ng-repeat="group in clientDetails.clientGroups">
+                <span class="label label-primary" >{{group}}</span>
+                </span>
+              </div>  
+            </div>
           </div>
         </div>
         <!-- end panel body section -->
@@ -65,10 +86,15 @@
 
         <!-- begin panel body section -->
         <div class="panel-body">
-          <div class="container-fluid">
-            <div class="row" ng-controller="clientHistoryController">
-              <span class="text-center" ng-hide="athleteLoaded">No athlete selected.</span>
-           </div>
+          <div class="container-fluid" ng-controller="clientHistoryController">
+            <div class="row" ng-hide="athleteLoaded">
+              <span class="text-center text-muted small">No athlete selected.</span>
+            </div>
+            <div class="row" ng-show="athleteLoaded" ng-repeat="history in clientHistory">
+              <div class="col-md-2">{{history.historyDate | date:'shortDate'}}</div>
+              <div class="col-md-7">{{history.historyItem}}</div>
+              <div class="col-md-3">{{history.historyAuthor}}</div>
+            </div>
           </div>
         </div>
         <!-- end panel body section -->
@@ -79,16 +105,20 @@
       <!-- begin client calendar panel -->
       <div class="panel panel-default">
         <div class="panel-heading ">
-          <strong>Athlete Calendar</strong>
+          <strong>Athlete Calendar - Next 30 Days</strong>
         </div>
         <!-- end panel heading section -->
 
         <!-- begin panel body section -->
         <div class="panel-body">
-          <div class="container-fluid">
-            <div class="row" ng-controller="clientCalendarController">
-              (placeholder)
-           </div>
+          <div class="container-fluid" ng-controller="clientCalendarController">
+            <div class="row" ng-hide="athleteLoaded">
+              <span class="text-center text-muted small">No athlete selected.</span>
+            </div>
+            <div class="row" ng-show="athleteLoaded" ng-repeat="task in clientCalendarNext30Days">
+              <div class="col-md-2">{{task.taskDueDate | date:'shortDate'}}</div>
+              <div class="col-md-10">{{task.taskTitle}}</div>
+            </div>
           </div>
         </div>
         <!-- end panel body section -->
@@ -105,9 +135,14 @@
 
         <!-- begin panel body section -->
         <div class="panel-body">
-          <div class="container-fluid">
-            <div class="row" ng-controller="clientNotesController">
-              (placeholder)
+          <div class="container-fluid" ng-controller="clientNotesController">
+            <div class="row" ng-hide="athleteLoaded">
+              <span class="text-center text-muted small">No athlete selected.</span>
+            </div>
+            <div class="row" ng-show="athleteLoaded" ng-repeat="note in clientNotes">
+              <div class="col-md-2">{{note.noteDate | date:'shortDate'}}</div>
+              <div class="col-md-10">{{note.noteText}}</div>
+            </div>
            </div>
           </div>
         </div>

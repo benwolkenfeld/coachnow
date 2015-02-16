@@ -12,17 +12,20 @@ client.factory('ClientService', function($http, $rootScope) {
       $rootScope.$broadcast('client.selectedClient', selectedClient);
       return;
     },
-    getClientDetail: function() {
+    getSelectedClient: function(selectedClient) {
+      if (selectedClient > 0) {
+        for (var i = 0; i < allClients.length; i++) {
+          if (allClients[i].clientId == selectedClient)
+            return allClients[i];
+        }
+      }
       return;
     },
-    getClientHistory: function() {
-      return;
-    },
-    getClientCalendar: function() {
-      return;
-    },
-    getClientNotes: function() {
-      return;
+    getClientById: function(clientId) {
+      for (var i = 0; i < allClients.length; i++) {
+        if (allClients[i].clientId == clientId)
+          return i;
+      }
     }
   }
 });

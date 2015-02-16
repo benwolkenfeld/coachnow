@@ -17,8 +17,6 @@ actionSvc.factory('ActionService', function($http) {
 
     addTask: function(theTask) {
       allTasks.push(theTask);
-      console.log('in factory');
-      console.log('setTasks - a big number = ' + allTasks.length);
     },
 
     refreshTasks: function() {
@@ -26,8 +24,8 @@ actionSvc.factory('ActionService', function($http) {
     },
 
     markTaskComplete: function(theTask) {
-      // find the task in the array of tasks and update:
-      //    taskStatus, taskCompleteDateTime, taskDue
+      
+      // find the task in the array of tasks and update
       for (var i = 0; i< allTasks.length; i++) {
         if (allTasks[i].taskId == theTask.taskId) {
           allTasks[i].taskStatus = 'complete';
