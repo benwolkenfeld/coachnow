@@ -1,0 +1,253 @@
+[
+{
+    "clientId": 700,
+    "clientFullName": "Lex Luthor",
+    "clientImage": "assets/img/anonymous.png",
+    "clientSpecialty": "Cycling",
+    "clientFee": 250,
+    "clientPaymentOption": "Recurring Autopay",
+    "clientPaymentStatus": "Over 60",
+    "clientAddress": "9242 Hadley, Overland Park, KS 66212",
+    "clientPhone": "913.555.1111",
+    "clientEmail": "lex_luthor@email.com",
+    "clientGroups": ["Endurance", "Cycling", "Racer", "75th St. Brewery Ride"],
+    "actionsAvailable": ["email","call","note"],
+    "clientHistory": 
+    [
+        {
+            "historyDate": "2015-01-03T11:00-06:00",
+            "historyItem": "Note added",
+            "historyAuthor": "Kent Woermann"
+        },
+        {
+            "historyDate": "2014-12-28T13:45-06:00",
+            "historyItem": "Phone call logged",
+            "historyAuthor": "Kent Woermann"
+        },
+        {
+            "historyDate": "2014-12-24T09:15-06:00",
+            "historyItem": "Email sent (link placeholder)",
+            "historyAuthor": "Kent Woermann"
+        }
+    ],
+    "clientCalendarNext30Days": 
+    [
+        {
+            "taskId": 0,
+            "taskTitle": "Gentlemen's time trial",
+            "taskDueDate": "2015-01-03T11:00-06:00",
+            "taskApptLengthMinutes": 0,
+            "taskDue":"tomorrow",
+            "taskStatus":"incomplete",
+            "taskCompleteDateTime": "",
+            "lastContactDateTime": "2014-12-17T10:00-06:00"
+        }
+    ],
+    "clientNotes":
+    [
+        {
+            "noteID": 0,
+            "noteDate": "2015-2-13T10:00-06:00",
+            "noteText": "Progress marker: 5 sec burst watts down 14%.  Discuss with Ben during next phone calls."
+        },
+        {
+            "noteID": 1,
+            "noteDate": "2015-02-07T10:00-06:00",
+            "noteText": "Very strong workout today.  Ben has shown incredible progress.  Captured video to demonstrate improvement in pedaling efficiency."
+        }
+    ]    
+},
+
+{
+    "clientId": 1200,
+    "clientFullName": "Wayne Gretzky",
+    "clientImage": "assets/img/wayne_gretzky.png",
+    "clientSpecialty": "Hockey",
+    "clientFee": 199,
+    "clientPaymentOption": "Recurring Autopay",
+    "clientPaymentStatus": "Over 60",
+    "clientAddress": "47 East 10th St, Kansas City, KS 66103",
+    "clientPhone": "913.555.1112",
+    "clientEmail": "wayne_gretzky@email.com",
+    "clientGroups": ["Endurance", "Professional Athlete", "Hockey"],
+    "actionsAvailable": ["email","call","note"],
+    "clientHistory": 
+    [
+        {
+            "historyDate": "2015-01-13T11:00-06:00",
+            "historyItem": "Note added",
+            "historyAuthor": "Kent Woermann"
+        },
+        {
+            "historyDate": "2014-12-18T13:45-06:00",
+            "historyItem": "Phone call logged",
+            "historyAuthor": "Kent Woermann"
+        },
+        {
+            "historyDate": "2014-12-14T09:15-06:00",
+            "historyItem": "Email sent (link placeholder)",
+            "historyAuthor": "Kent Woermann"
+        }
+    ],
+    "clientCalendarNext30Days": 
+    [
+        {
+            "taskId": 2,
+            "taskTitle": "Training plan for next cycle",
+            "taskDueDate": "2015-01-09T10:00-06:00",
+            "taskApptLengthMinutes": 120,
+            "taskDue":"later",
+            "taskStatus":"incomplete",
+            "taskCompleteDateTime": "",
+            "lastContactDateTime": "2014-12-29T16:30-06:00",
+            "lastContactTitle": "Coaching session"
+        }
+    ],
+    "clientNotes":
+    [
+        {
+            "noteID": 2,
+            "noteDate": "2015-2-13T10:00-06:00",
+            "noteText": "Progress marker: 5 sec burst watts down 14%.  Discuss with Wayne during next phone calls."
+        },
+        {
+            "noteID": 3,
+            "noteDate": "2015-02-07T10:00-06:00",
+            "noteText": "Very strong workout today.  Wayne has shown incredible progress.  Captured video to demonstrate improvement in pedaling efficiency."
+        }
+    ]    
+},
+{
+    "clientId": 500,
+    "clientFullName": "Jackie Robinson",
+    "clientImage": "assets/img/jackie_robinson.png",
+    "clientSpecialty": "Baseball",
+    "clientFee": 475,
+    "clientPaymentOption": "Recurring Autopay",
+    "clientPaymentStatus": "Current",
+    "clientAddress": "103 Main Street, Kansas City, MO 64111",
+    "clientPhone": "913.555.1113",
+    "clientEmail": "jackie_robinson@email.com",
+    "clientGroups": ["Strength", "Professional Athlete", "Baseball"],
+    "actionsAvailable": ["email","call","note"],
+    "clientHistory": 
+    [
+        {
+            "historyDate": "2015-01-23T11:00-06:00",
+            "historyItem": "Note added",
+            "historyAuthor": "Garet Steinmetz"
+        },
+        {
+            "historyDate": "2015-01-18T13:45-06:00",
+            "historyItem": "Phone call logged",
+            "historyAuthor": "Garet Steinmetz"
+        },
+        {
+            "historyDate": "2014-12-14T09:15-06:00",
+            "historyItem": "Email sent (link placeholder)",
+            "historyAuthor": "Garet Steinmetz"
+        }
+    ],
+    "clientCalendarNext30Days": 
+    [
+        {
+            "taskId": 2,
+            "taskTitle": "Training plan for next cycle",
+            "taskDueDate": "2015-01-19T10:00-06:00",
+            "taskApptLengthMinutes": 120,
+            "taskDue":"later",
+            "taskStatus":"incomplete",
+            "taskCompleteDateTime": "",
+            "lastContactDateTime": "2014-12-29T16:30-06:00",
+            "lastContactTitle": "Coaching session"
+        }
+    ],
+    "clientNotes":
+    [
+        {
+            "noteID": 4,
+            "noteDate": "2015-2-13T10:00-06:00",
+            "noteText": "Progress marker: 5 sec burst watts down 14%.  Discuss with Jackie during next phone calls.",
+            "noteAuthor": "Garet Steinmetz"
+        },
+        {
+            "noteID": 5,
+            "noteDate": "2015-02-07T10:00-06:00",
+            "noteText": "Very strong workout today.  Jackie has shown incredible progress.  Captured video to demonstrate improvement in pedaling efficiency.",
+            "noteAuthor": "Garet Steinmetz"
+        }
+    ]    
+},
+{
+    "clientId": 200,
+    "clientFullName": "Scarlett Johansson",
+    "clientImage": "assets/img/scarlett_johansson.png",
+    "clientSpecialty": "Triathlon",
+    "clientFee": 175,
+    "clientPaymentOption": "Recurring Autopay",
+    "clientPaymentStatus": "Over 90",
+    "clientAddress": "4700 Pennsylvania, Kansas City, MO 64112",
+    "clientPhone": "913.555.1114",
+    "clientEmail": "scarlett_johansson@email.com",
+    "clientGroups": ["Endurance", "Triathlon", "Cycling", "75th St. Brewery Ride", "Racer"],
+    "actionsAvailable": ["email","call","note"],
+    "clientHistory": 
+    [
+        {
+            "historyDate": "2015-01-12T10:00-06:00",
+            "historyItem": "Note added",
+            "historyAuthor": "Garet Steinmetz"
+        },
+        {
+            "historyDate": "2015-01-10T12:30-06:00",
+            "historyItem": "Phone call logged",
+            "historyAuthor": "Garet Steinmetz"
+        },
+        {
+            "historyDate": "2014-12-30T09:15-06:00",
+            "historyItem": "Email sent (link placeholder)",
+            "historyAuthor": "Garet Steinmetz"
+        }
+    ],
+    "clientCalendarNext30Days": 
+    [
+        {
+            "taskId": 4,
+            "taskTitle": "Has not recorded a workout for 6 days",
+            "taskDueDate": "2015-01-02T12:00-06:00",
+            "taskApptLengthMinutes": 0,
+            "taskDue":"today",
+            "taskStatus":"incomplete",
+            "taskCompleteDateTime": "",
+            "lastContactDateTime": "2014-11-07T17:30-06:00",
+            "lastContactTitle": "30-day phone call"
+        },
+        {
+            "taskId": 6,
+            "taskTitle": "Follow up on outstanding balance due",
+            "taskDueDate": "2015-01-01T12:00-06:00",
+            "taskApptLengthMinutes": 0,
+            "taskDue":"yesterday",
+            "taskStatus":"incomplete",
+            "taskCompleteDateTime": "",
+            "lastContactDateTime": "2014-11-30T09:00-06:00",
+            "lastContactTitle": "Cancelled session originally scheduled for 12/1/2014 at 3:00 pm"
+        }
+    ],
+    "clientNotes":
+    [
+        {
+            "noteID": 6,
+            "noteDate": "2015-2-13T10:00-06:00",
+            "noteText": "Progress marker: 5 sec burst watts down 14%.  Discuss with Scarlett during next phone calls.",
+            "noteAuthor": "Garet Steinmetz"
+        },
+        {
+            "noteID": 7,
+            "noteDate": "2015-02-07T10:00-06:00",
+            "noteText": "Very strong workout today.  Scarlett has shown incredible progress.  Captured video to demonstrate improvement in pedaling efficiency.",
+            "noteAuthor": "Garet Steinmetz"
+        }
+    ]    
+}
+]

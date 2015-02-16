@@ -1,9 +1,9 @@
 var app = angular.module('coachNow', [
   'ngRoute',
   'ui.bootstrap',
-  'coachNow.actionservice',
   'coachNow.actionview',
-  'coachNow.athleteview',
+  'coachNow.actionservice',
+  'coachNow.client',
   'nvd3Charts.SnapshotChartController',
   'nvd3Charts.CoachPerformanceChartController'
   ]);
@@ -14,7 +14,7 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'app/components/actions/actionView.html'
     })
     .when('/athletes',{
-      templateUrl: 'app/components/athletes/athleteView.html'
+      templateUrl: 'app/components/clients/clientView.html'
     })
     .otherwise({
       redirectTo: '/actions'

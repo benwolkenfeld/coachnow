@@ -1,0 +1,121 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <!-- begin athlete search panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading ">
+          <strong>Athletes</strong>
+        </div>
+        <!-- end panel heading section -->
+
+        <!-- begin panel body section -->
+        <div class="panel-body">
+          <div class="container-fluid" ng-controller="clientSearchController">
+            <div class="row no-gutter-12">
+              <div class="col-sm-12 small"><span class="h5">Select Athlete</span></div>
+              
+              <div class="form-group">
+                <div class="col-sm-12 small">
+                  <p class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." ng-model="search.clientFullName" />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row no-gutter-6" ng-repeat="client in clients | filter:search">
+              <div class="col-sm-6 small"><a href="" ng-click="selectClient(client.clientId)">{{client.clientFullName}}</a></div>
+              <div class="col-sm-6 small">{{client.clientSpecialty}}</div>
+            </div>
+          </div>
+        </div>
+        <!-- end panel body section -->
+
+      </div>
+      <!-- end client search panel -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <!-- begin client overview panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading ">
+          <strong>Athlete Overview</strong>
+        </div>
+        <!-- end panel heading section -->
+
+        <!-- begin panel body section -->
+        <div class="panel-body">
+          <div class="container-fluid">
+            <div class="row" ng-controller="clientOverviewController">
+              (placeholder)
+           </div>
+          </div>
+        </div>
+        <!-- end panel body section -->
+
+      </div>
+      <!-- end overview search panel -->
+
+      <!-- begin client history panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading ">
+          <strong>Athlete History</strong>
+        </div>
+        <!-- end panel heading section -->
+
+        <!-- begin panel body section -->
+        <div class="panel-body">
+          <div class="container-fluid">
+            <div class="row" ng-controller="clientHistoryController">
+              <span class="text-center" ng-hide="athleteLoaded">No athlete selected.</span>
+           </div>
+          </div>
+        </div>
+        <!-- end panel body section -->
+
+      </div>
+      <!-- end overview history panel -->
+
+      <!-- begin client calendar panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading ">
+          <strong>Athlete Calendar</strong>
+        </div>
+        <!-- end panel heading section -->
+
+        <!-- begin panel body section -->
+        <div class="panel-body">
+          <div class="container-fluid">
+            <div class="row" ng-controller="clientCalendarController">
+              (placeholder)
+           </div>
+          </div>
+        </div>
+        <!-- end panel body section -->
+
+      </div>
+      <!-- end overview calendar panel -->
+
+      <!-- begin client notes panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading ">
+          <strong>Athlete Notes</strong>
+        </div>
+        <!-- end panel heading section -->
+
+        <!-- begin panel body section -->
+        <div class="panel-body">
+          <div class="container-fluid">
+            <div class="row" ng-controller="clientNotesController">
+              (placeholder)
+           </div>
+          </div>
+        </div>
+        <!-- end panel body section -->
+
+      </div>
+      <!-- end overview notes panel -->
+
+    </div>
+  </div>
+</div>
